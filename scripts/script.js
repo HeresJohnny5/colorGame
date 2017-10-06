@@ -14,5 +14,18 @@ var colorDisplay = document.getElementById('colorDisplay');
 colorDisplay.textContent = pickedColor;
 
 for (var i = 0; i < squares.length; i++) {
+	// add initial colors to squares
 	squares[i].style.backgroundColor = colors[i];
+	
+	// add event listener to squares
+	squares[i].addEventListener('click', function() {
+		var clickedColor = this.style.backgroundColor;
+		
+		if (clickedColor === pickedColor) {
+			alert("Correct");
+		} else {
+			alert("Incorrect");
+		}
+	});
+
 }
