@@ -16,9 +16,8 @@ colors = [
 ];
 
 backgroundColor = "#232323";
-
-// hard coded 
-pickedColor = colors[3];
+ 
+pickedColor = randomColor();
 
 colorDisplay.textContent = pickedColor;
 
@@ -47,4 +46,9 @@ function changeColors(color) {
 	for (var i = 0; i < squares.length; i++) {
 		squares[i].style.backgroundColor = color;
 	}
+}
+
+function randomColor() {
+	var randomNumber = Math.round(Math.random() * colors.length);
+	return colors[randomNumber];
 }
