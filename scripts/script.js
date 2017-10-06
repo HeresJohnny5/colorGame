@@ -1,21 +1,12 @@
-var header, message, squares, colorDisplay, colors, backgroundColor, pickedColor;
+var header, message, squares, colorDisplay, colors, pickedColor;
 
-// dom selection
+// dom selections
 header = document.querySelector('h1');
 message = document.getElementById('message');
 squares = document.querySelectorAll('.square');
 colorDisplay = document.getElementById('colorDisplay');
 
-colors = [
-	"rgb(255, 0, 0)",
-	"rgb(255, 255, 0)",
-	"rgb(0, 255, 0)",
-	"rgb(0, 255, 255)",
-	"rgb(0, 0, 255)",
-	"rgb(255, 0, 255)"
-];
-
-backgroundColor = "#232323";
+colors = generateRandomColors(6);
  
 pickedColor = randomColor();
 
@@ -37,7 +28,7 @@ for (var i = 0; i < squares.length; i++) {
 		} else {
 			message.textContent = "Try Again";
 
-			this.style.backgroundColor = backgroundColor;
+			this.style.backgroundColor = "#232323";
 		}
 	});
 }
@@ -51,4 +42,22 @@ function changeColors(color) {
 function randomColor() {
 	var randomNumber = Math.round(Math.random() * colors.length);
 	return colors[randomNumber];
+}
+
+function generateRandomColors(noOfSquares) {
+	var colorsArray = [];
+	
+	for (var i = 0; i < noOfSquares; i++) {
+		colorsArray.push(randomCol());
+	}
+	
+	return colorsArray;
+}
+
+function randomCol() {
+	var r = Math.round(Math.random() * 255);
+	var g = Math.round(Math.random() * 255);
+	var b = Math.round(Math.random() * 255);
+	
+	return "rgb(" + r + ", " + g + ", " + b + ")";
 }
