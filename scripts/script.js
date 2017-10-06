@@ -1,9 +1,10 @@
-var squares, colorDisplay, header, colors, backgroundColor, pickedColor;
+var header, message, squares, colorDisplay, colors, backgroundColor, pickedColor;
 
 // dom selection
+header = document.querySelector('h1');
+message = document.getElementById('message');
 squares = document.querySelectorAll('.square');
 colorDisplay = document.getElementById('colorDisplay');
-header = document.querySelector('h1');
 
 colors = [
 	"rgb(255, 0, 0)",
@@ -31,8 +32,19 @@ for (var i = 0; i < squares.length; i++) {
 		
 		if (clickedColor === pickedColor) {
 			header.style.backgroundColor = pickedColor;
+			message.textContent = "Correct";
+			
+			changeColors(clickedColor);
 		} else {
+			message.textContent = "Try Again";
+
 			this.style.backgroundColor = backgroundColor;
 		}
 	});
+}
+
+function changeColors(color) {
+	for (var i = 0; i < squares.length; i++) {
+		squares[i].style.backgroundColor = color;
+	}
 }
