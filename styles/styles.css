@@ -1,6 +1,12 @@
 body { background-color: #232323; }
 
-h1, span {
+#stripe { 
+	background-color: #fff;
+	height: 30px;
+	text-align: center;
+}
+
+h1 {
 	color: #fff;
 }
 

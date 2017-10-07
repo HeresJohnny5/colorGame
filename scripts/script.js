@@ -1,15 +1,27 @@
-var header, message, squares, colorDisplay, colors, pickedColor;
+var header, resetBtn, message, squares, colorDisplay, colors, pickedColor;
 
 // dom selections
 header = document.querySelector('h1');
+resetBtn = document.getElementById('reset');
 message = document.getElementById('message');
 squares = document.querySelectorAll('.square');
 colorDisplay = document.getElementById('colorDisplay');
 
-colors = generateRandomColors(6);
- 
-pickedColor = randomColor();
+resetBtn.addEventListener('click', function() {
+	header.style.backgroundColor = '#232323';
+	resetBtn.textContent = 'New Colors';
+	colors = generateRandomColors(6);
+	pickedColor = randomColor();
+	colorDisplay.textContent = pickedColor;
+	
+	for (var i = 0; i < squares.length; i++) {
+		// add initial colors to squares
+		squares[i].style.backgroundColor = colors[i];
+	}
+});
 
+colors = generateRandomColors(6);
+pickedColor = randomColor();
 colorDisplay.textContent = pickedColor;
 
 for (var i = 0; i < squares.length; i++) {
@@ -23,6 +35,7 @@ for (var i = 0; i < squares.length; i++) {
 		if (clickedColor === pickedColor) {
 			header.style.backgroundColor = pickedColor;
 			message.textContent = "Correct";
+			resetBtn.textContent = "Play Again";
 			
 			changeColors(clickedColor);
 		} else {
