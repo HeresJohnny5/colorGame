@@ -11,7 +11,7 @@ colorDisplay = document.getElementById('colorDisplay');
 numOfSquares = 6;
 
 resetBtn.addEventListener('click', function() {
-	header.style.backgroundColor = '#232323';
+	header.style.backgroundColor = 'steelblue';
 	resetBtn.textContent = 'New Colors';
 	message.textContent = "";
 	hardBtn.classList.add('selected');
